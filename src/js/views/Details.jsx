@@ -5,7 +5,7 @@ import { Context } from "../store/appContext.js";
 
 
 export const Details = () => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
     const { detailsCharacter } = store
     const params = useParams();
     const id = params.id;
@@ -20,9 +20,9 @@ export const Details = () => {
                     <div className="card-body">
                         <h4 className="card-title">{detailsCharacter.name}</h4>
                         <p className="card-text"><b>Gender: </b>{detailsCharacter.gender}</p>
-                        <p className="card-text"><b>Height: </b> </p>
-                        <p className="card-text"><b>Birthday: </b> </p>
-                        <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <p className="card-text"><b>Height: </b>{detailsCharacter.height}</p>
+                        <p className="card-text"><b>Birthday: </b>{detailsCharacter.birth_year}</p>
+                        
                     </div>
                 </div>
             </div>

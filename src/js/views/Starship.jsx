@@ -1,9 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
 export const Starship = () => {
     const { store, actions } = useContext(Context);
+    const navigate = useNavigate();
+
+    const handleStarshipDetails = (id) =>{
+        actions.getStarshipDetails(id);
+        navigate (`/details-starships/${id}`)
+    }
+
     const handleOnError = (event)=> {
         event.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
       };
@@ -21,9 +28,9 @@ export const Starship = () => {
                             <h5 className="card-title">{item.name}</h5>
                             <p className="card-text">{item.height}</p>
                             <div className="d-flex justify-content-between">
-                                <Link to={`/details-starships/${+index + 1}`}>
-                                    <button className="btn btn-secondary">Details</button>
-                                </Link>
+                                
+                                    <button onClick={()=> handleStarshipDetails(item.uid)} className="btn btn-secondary ">Details</button>
+                                
                                 <button onClick={() => { favoriteTask(item) }}  className="btn btn-outline-warning"><i className="far fa-heart"></i></button>
                             </div>
                         </div>

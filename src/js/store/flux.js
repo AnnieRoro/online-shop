@@ -86,6 +86,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data.result.properties)
 				setStore({detailsCharacter:data.result.properties})
 			},
+
+			getPlanetDetails: async (id) => {
+				const url = `https://www.swapi.tech/api/planets/${id}`;
+				const options = {
+					method: "GET"
+				}
+				const response = await fetch (url, options);
+				if (!response.ok){
+					console.log('Error:', response.status, response.statusText)
+					return response.status
+				}
+				const data = await response.json()
+				console.log(data.result.properties)
+				setStore({detailsPlanet:data.result.properties})
+			},
+			getStarshipDetails: async (id) => {
+				const url = `https://www.swapi.tech/api/starships/${id}`;
+				const options = {
+					method: "GET"
+				}
+				const response = await fetch (url, options);
+				if (!response.ok){
+					console.log('Error:', response.status, response.statusText)
+					return response.status
+				}
+				const data = await response.json()
+				console.log(data.result.properties)
+				setStore({detailsStarship:data.result.properties})
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

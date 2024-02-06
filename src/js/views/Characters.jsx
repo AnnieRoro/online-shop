@@ -1,5 +1,4 @@
 import React, {useContext, useState} from "react";
-import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
@@ -27,7 +26,7 @@ export const Characters = () => {
                 <img onError={handleOnError} src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>
-                        <p className="card-text"></p>                        
+                                             
                         <div className="d-flex justify-content-between">
                             
                             <button onClick={()=> handleDetails(item.uid)} className="btn btn-secondary">Details</button>
