@@ -2,14 +2,19 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home } from "./views/Home.jsx";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-
+import { Navbar } from "./component/Navbar.jsx";
+import { Footer } from "./component/Footer.jsx";
+import { Characters } from "./views/Characters.jsx";
+import { Planets } from "./views/Planets.jsx";
+import { Starship } from "./views/Starship.jsx";
+import { Details } from "./views/Details.jsx";
+import { DetailsPLanets } from "./views/DetailsPlanets.jsx";
+import { DetailsStarships } from "./views/DetailsStarships.jsx";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -24,6 +29,12 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
+						<Route path="/characters" element={<Characters/>} />
+						<Route path="/planets" element={<Planets/>} />
+						<Route path="/starship" element={<Starship/>}/>
+						<Route path="/details/:id" element={<Details/>}/>
+						<Route path="/details-planets/:id" element={<DetailsPLanets/>}/>
+						<Route path="/details-starships/:id" element={<DetailsStarships/>}/>
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
